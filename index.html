@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Trivia Game</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+</head>
+<body>
+    <div class="container card">
+        <div class="row card-body">
+          <div class="col">
+            <div class="jumbotron">
+                <h2 class="display-4">Trivia Game</h2>
+                <hr class="my-4">
+                <p>How well do you know Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam exercitationem culpa obcaecati fugit inventore repellat quo error officia ullam esse?</p>
+                <a class="btn btn-primary btn-lg" id = 'btnStart' href="#" role="button">Play now</a>
+                <a class="btn btn-primary btn-lg" id = 'btnRestart' href="#" role="button">Restart</a>
+              </div>
+          </div>
+        </div>
+        <div class="row card">
+          <div class="col card-body" id = 'timer'>
+            Timer
+          </div>
+        </div>
+        <div class="row card">
+            <div class="col card-body">
+              <div id = "start">
+                Click here to start
+              </div>
+              <div id = "game">
+                <p id = "question">
+                  question
+                </p>
+                <p id = "answer1">
+                  answer1
+                </p>
+                <p id = "answer2">
+                  answer2
+                </p>
+                <p id = "answer3">
+                  answer3
+                </p>
+                <p id = "answer4">
+                  answer4
+                </p>
+               </div>  
+              <div id = 'gameOver'>
+                <p>
+                  game over
+                </p>
+                <p>
+                  Alright, here's how you did!
+                </p>
+                <p>
+                  correct
+                </p>
+                <p>
+                  incorrect
+                </p>
+                <p>
+                  time left
+                </p>
+              </div>              
+          </div>
+      </div>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="./assets/javascript/app.js"></script>
+</body>
+</html>
