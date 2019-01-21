@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Trivia Game</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 </head>
@@ -15,7 +16,7 @@
             <div class="jumbotron">
                 <h2 class="display-4">Trivia Game</h2>
                 <hr class="my-4">
-                <p>How well do you know Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam exercitationem culpa obcaecati fugit inventore repellat quo error officia ullam esse?</p>
+                <p>How well do you know Jamaica, it's past and it's culture. Take this quiz to find out!</p>
                 <a class="btn btn-primary btn-lg" id = 'btnStart' href="#" role="button">Play now</a>
                 <a class="btn btn-primary btn-lg" id = 'btnRestart' href="#" role="button">Restart</a>
               </div>
@@ -23,31 +24,91 @@
         </div>
         <div class="row card">
           <div class="col card-body" id = 'timer'>
-            Timer
+            You have 120 seconds to finish all questions.
           </div>
         </div>
         <div class="row card">
             <div class="col card-body">
-              <div id = "start">
+              <!-- <div id = "start">
                 Click here to start
-              </div>
+              </div> -->
               <div id = "game">
-                <p id = "question">
-                  question
+                <p id = "question1">
+                  Jamaica's capitol city is _____?
                 </p>
-                <p id = "answer1">
-                  answer1
+                <div>
+                  <label class="radio-inline"><input type="radio" id='1' name="optradio1">Montego Bay</label>
+                  <label class="radio-inline"><input type="radio" id='2' name="optradio1">Kingston</label>
+                  <label class="radio-inline"><input type="radio" id='3' name="optradio1">Ocho Rios</label>
+                  <label class="radio-inline"><input type="radio" id='4' name="optradio1">Port Antonio</label>
+                </div>
+                <p id = "question2">
+                  Jamaiaca has approximately how many people?
                 </p>
-                <p id = "answer2">
-                  answer2
+                  <label class="radio-inline"><input type="radio" id='5' name="optradio2">250,000</label>
+                  <label class="radio-inline"><input type="radio" id='6' name="optradio2">1 million</label>
+                  <label class="radio-inline"><input type="radio" id='7' name="optradio2">3 million</label>
+                  <label class="radio-inline"><input type="radio" id='8' name="optradio2">6 million</label>
+                <p id = "question3">
+                  The longest mountain range in Jamaica is _______?
                 </p>
-                <p id = "answer3">
-                  answer3
+                  <label class="radio-inline"><input type="radio" id='9' name="optradio3">The Blue Mountains</label>
+                  <label class="radio-inline"><input type="radio" id='10' name="optradio3">The Rastafarian Mountains</label>
+                  <label class="radio-inline"><input type="radio" id='11' name="optradio3">The Step Mountains</label>
+                  <label class="radio-inline"><input type="radio" id='12' name="optradio3">Jamaica has no mountains</label>
+                <p id = "question4">
+                  One of Jamaican's largest exports is?
                 </p>
-                <p id = "answer4">
-                  answer4
+                  <label class="radio-inline"><input type="radio" id='13' name="optradio4">Sugar</label>
+                  <label class="radio-inline"><input type="radio" id='14' name="optradio4">Coconuts</label>
+                  <label class="radio-inline"><input type="radio" id='15' name="optradio4">Clothing</label>
+                  <label class="radio-inline"><input type="radio" id='16' name="optradio4">Electronics</label>
+                <p id = "question5">
+                  Jamaica traditionally does well in which Olympic sport?
                 </p>
+                  <label class="radio-inline"><input type="radio" id='17' name="optradio5">Curling</label>
+                  <label class="radio-inline"><input type="radio" id='18' name="optradio5">Archery</label>
+                  <label class="radio-inline"><input type="radio" id='19' name="optradio5">Gymnastics</label>
+                  <label class="radio-inline"><input type="radio" id='20' name="optradio5">Track and field</label>
+                <p id = "question6">
+                  This type of music originated in Jamaica.
+                </p>
+                  <label class="radio-inline"><input type="radio" id='21' name="optradio6">Big band</label>
+                  <label class="radio-inline"><input type="radio" id='22' name="optradio6">Reggae</label>
+                  <label class="radio-inline"><input type="radio" id='23' name="optradio6">Steel band</label>
+                  <label class="radio-inline"><input type="radio" id='24' name="optradio6">Salsa</label>
+                <p id = "question7">
+                  The highest office in Jamaica is called the _________.
+                </p>
+                  <label class="radio-inline"><input type="radio" id='25' name="optradio7">President</label>
+                  <label class="radio-inline"><input type="radio" id='26' name="optradio7">Party leader</label>
+                  <label class="radio-inline"><input type="radio" id='27' name="optradio7">Governer General</label>
+                  <label class="radio-inline"><input type="radio" id='28' name="optradio7">Prime Minister</label>
+                <p id = "question8">
+                  What is the type of food is Jamaica famous for?
+                </p>
+                  <label class="radio-inline"><input type="radio" id='29' name="optradio8">Jerk chicken</label>
+                  <label class="radio-inline"><input type="radio" id='30' name="optradio8">BBQ ribs</label>
+                  <label class="radio-inline"><input type="radio" id='31' name="optradio8">Sushi</label>
+                  <label class="radio-inline"><input type="radio" id='32' name="optradio8">Paella</label>
+                <p id = "question9">
+                  The name of currency Jamaica uses:
+                </p>
+                  <label class="radio-inline"><input type="radio" id='33' name="optradio9">Pound</label>
+                  <label class="radio-inline"><input type="radio" id='34' name="optradio9">Chit</label>
+                  <label class="radio-inline"><input type="radio" id='35' name="optradio9">Dollar</label>
+                  <label class="radio-inline"><input type="radio" id='36' name="optradio9">The Jam</label>
+                <p id = "question10">
+                  The first European country to arrive in Jamaica was the: 
+                </p>
+                  <label class="radio-inline"><input type="radio" id='37' name="optradio10">English</label>
+                  <label class="radio-inline"><input type="radio" id='38' name="optradio10">Dutch</label>
+                  <label class="radio-inline"><input type="radio" id='39' name="optradio10">Portuguese</label>
+                  <label class="radio-inline"><input type="radio" id='40' name="optradio10">Spanish</label>
+
                </div>  
+
+               <a class="btn btn-primary btn-lg" id = 'btnDone' href="#" role="button">Done!</a>
               <div id = 'gameOver'>
                 <p>
                   game over

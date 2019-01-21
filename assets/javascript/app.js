@@ -1,273 +1,178 @@
-var questions = [{
-        title: 'title1',
-        answer1:  "answerz",
-        answer2:  "answer2",
-        answer3:  "answer3",
-        answer4:  "answer4"}, 
-        {
-        title:  'title2',
-        answer1:  "answer5",
-        answer2:  "answer6",
-        answer3:  "answer7",
-        answer4:  "answer8"}, 
-        {
-        title:  'title3',
-        answer1:  "answer9",
-        answer2:  "answer10",
-        answer3:  "answer11",
-        answer4:  "answer12"}, 
-        {
-        title:  'title4',
-        answer1:  "answer13",
-        answer2:  "answer14",
-        answer3:  "answer15",
-        answer4:  "answer16"},
-        {
-        title:  'title5',
-        answer1:  "answer17",
-        answer2:  "answer18",
-        answer3:  "answer19",
-        answer4:  "answer20"},
-        {
-        title:  'title6',
-        answer1:  "answer21",
-        answer2:  "answer22",
-        answer3:  "answer23",
-        answer4:  "answer24"},
-        {
-        title:  'title7',
-        answer1:  "answer25",
-        answer2:  "answer26",
-        answer3:  "answer27",
-        answer4:  "answer28"},
-        {
-        title:  'title8',
-        answer1:  "answer29",
-        answer2:  "answer30",
-        answer3:  "answer31",
-        answer4:  "answer32"},
-        {
-        title:  'title9',
-        answer1:  "answer33",
-        answer2:  "answer34",
-        answer3:  "answer35",
-        answer4:  "answer36"},
-        {
-        title:  'title10',
-        answer1:  "answer37",
-        answer2:  "answer38",
-        answer3:  "answer39",
-        answer4:  "answer40"}];
-
-var answers = ["answer1", "answer8", "answer9", "answer15", "answer17", "answer23", "answer28", "answer30", "answer36", "answer38"];
 
 var correct = 0;
 var incorrect = 10; 
 var left = 10;
-
-var one = document.getElementById('answer1');
-var two = document.getElementById('answer2');
-var three = document.getElementById('answer3');
-var four = document.getElementById('answer4');
-
-console.log(questions[0]);
-console.log('10');
-
-var timeleft = 30;
-
-function countdownTimer() {
-var countdownTimer = setInterval(function(){
-timeleft--;
-document.getElementById("timer").textContent = 'You have ' + timeleft + ' seconds left!';
-if(timeleft <= 0 || left === 0)
-        clearInterval(countdownTimer);
-},1000);
-};
-
+var timeLeft = 120
+var intervalId
 
 // show start screen first
 $('#btnRestart').hide();
 $('#timer').hide();
 $('#game').hide();
 $('#gameOver').hide();
+$('#btnDone').hide();
+
 // when user clicks on start, go to the first question
 $('#btnStart').on('click', function() {
-    countdownTimer();
+    run();
+    timeLeft = 120;
     $('#btnStart').hide();
     $('#start').hide();
     $('#btnRestart').show();
     $('#timer').show();
     $('#game').show();  
     $('#gameOver').hide();
+    $('#btnDone').show();
+    // for (var i = 1; i < 41; i++ ){
+    //     $('#i').prop('checked', false);
+    // }
+    $('#1').prop('checked', false);
+    $('#2').prop('checked', false);
+    $('#3').prop('checked', false);
+    $('#4').prop('checked', false);
+    $('#5').prop('checked', false);
+    $('#6').prop('checked', false);
+    $('#7').prop('checked', false);
+    $('#8').prop('checked', false);
+    $('#9').prop('checked', false);
+    $('#10').prop('checked', false);
+    $('#11').prop('checked', false);
+    $('#12').prop('checked', false);
+    $('#13').prop('checked', false);
+    $('#14').prop('checked', false);
+    $('#15').prop('checked', false);
+    $('#16').prop('checked', false);
+    $('#17').prop('checked', false);
+    $('#18').prop('checked', false);
+    $('#19').prop('checked', false);
+    $('#20').prop('checked', false);
+    $('#21').prop('checked', false);
+    $('#22').prop('checked', false);
+    $('#23').prop('checked', false);
+    $('#24').prop('checked', false);
+    $('#25').prop('checked', false);
+    $('#26').prop('checked', false);
+    $('#27').prop('checked', false);
+    $('#28').prop('checked', false);
+    $('#29').prop('checked', false);
+    $('#30').prop('checked', false);
+    $('#31').prop('checked', false);
+    $('#32').prop('checked', false);
+    $('#33').prop('checked', false);
+    $('#34').prop('checked', false);
+    $('#35').prop('checked', false);
+    $('#36').prop('checked', false);
+    $('#37').prop('checked', false);
+    $('#38').prop('checked', false);
+    $('#39').prop('checked', false);
+    $('#40').prop('checked', false);
+    correct = 0;
 })
-// and start the clock
 
-// when user clicks on an answer, go to the second question
-$('#question').text(questions[0].title);
-$('#answer1').text(questions[0].answer1);
-$('#answer2').text(questions[0].answer2);
-$('#answer3').text(questions[0].answer3);
-$('#answer4').text(questions[0].answer4);
+// when user clicks restart, this happens
+$('#btnRestart').on('click', function() {
+    timeLeft = 120;
+    $('#btnStart').show();
+    $('#start').show();
+    $('#btnRestart').hide();
+    $('#timer').hide();
+    $('#game').hide();  
+    $('#gameOver').hide();
+    $('#btnDone').hide();
 
-// if (left === 0){
-//     stopTimer();
-//     $('#btnStart').hide();
-//     $('#start').hide();
-//     $('#btnRestart').show();
-//     $('#timer').show();
-//     $('#game').hide();  
-//     $('#gameOver').show();
-// }
+ 
+})
+
+// when user click on done, go to done screen
+$('#btnDone').on('click', function() {
+    clearInterval(intervalId);
+    clockrunning = false;
+    $('#timer').html('You had ' + timeLeft + ' seconds left on the clock!');
+    $('#btnStart').show();
+    $('#start').hide();
+    $('#btnRestart').hide();
+    $('#timer').show();
+    $('#game').hide();  
+    $('#gameOver').show();
+    $('#btnDone').hide();
+    result ();
+
+})
 
 
-var i = 0
 
-one.onclick = function(){
+// timer stuff
 
-    var text = questions[i].answer1;
-    console.log(text)
-            for (var j = 0; j < 10; j++) {
-                if (answers[j].includes(text)) {
-                    correct++;
-                }
-            }
+function run() {
+    clearInterval(intervalId);
+    intervalId = setInterval(decrement, 1000)
+}
 
-            i++;
-            left--; 
-            console.log("correct: " + correct)
-            console.log("incorrect: " + incorrect)
-            console.log(left)
-            if (left !== 0) {
-            $('#question').text(questions[i].title);
-            $('#answer1').text(questions[i].answer1);
-            $('#answer2').text(questions[i].answer2);
-            $('#answer3').text(questions[i].answer3);
-            $('#answer4').text(questions[i].answer4);
-            }
-            else {
-                $('#btnStart').hide();
-                $('#start').hide();
-                $('#btnRestart').show();
-                $('#timer').show();
-                $('#game').hide();  
-                $('#gameOver').show();
-            }
-            $('#numberCorrect').text('You got ' + correct + ' correct!');
-            $('#numberIncorrect').text('You got ' + (10 - correct) + ' incorrect!');
-        }
+function decrement() {
+    timeLeft--;
+    $('#timer').html('You have ' + timeLeft + ' seconds left!');
 
-two.onclick = function(){
+    if (timeLeft === 0) {
+        clearInterval(intervalId);
+        clockrunning = false;
+        $('#btnStart').show();
+        $('#start').hide();
+        $('#btnRestart').hide();
+        $('#timer').show();
+        $('#game').hide();  
+        $('#gameOver').show();
+        $('#btnDone').hide();
+        result();
 
-    var text = questions[i].answer1;
-    console.log(text)
-            for (var j = 0; j < 10; j++) {
-                if (answers[j].includes(text)) {
-                    correct++;
-                }
-            }
+    }
+}
 
-            i++;
-            left--; 
-            console.log("correct: " + correct)
-            console.log("incorrect: " + incorrect)
-            console.log(left)
 
-            if (left !== 0) {
-                $('#question').text(questions[i].title);
-                $('#answer1').text(questions[i].answer1);
-                $('#answer2').text(questions[i].answer2);
-                $('#answer3').text(questions[i].answer3);
-                $('#answer4').text(questions[i].answer4);
-                }
-                else {
-                    $('#btnStart').hide();
-                    $('#start').hide();
-                    $('#btnRestart').show();
-                    $('#timer').show();
-                    $('#game').hide();  
-                    $('#gameOver').show();
-                }
-                $('#numberCorrect').text('You got ' + correct + ' correct!');
-                $('#numberIncorrect').text('You got ' + (10 - correct) + ' incorrect!');
-        }
-
-three.onclick = function(){
-
-    var text = questions[i].answer1;
-    console.log(text)
-            for (var j = 0; j < 10; j++) {
-                if (answers[j].includes(text)) {
-                    correct++;
-                }
-            }
-
-            i++;
-            left--; 
-            console.log("correct: " + correct)
-            console.log("incorrect: " + incorrect)
-            console.log(left)
-
-            if (left !== 0) {
-                $('#question').text(questions[i].title);
-                $('#answer1').text(questions[i].answer1);
-                $('#answer2').text(questions[i].answer2);
-                $('#answer3').text(questions[i].answer3);
-                $('#answer4').text(questions[i].answer4);
-                }
-                else {
-                    $('#btnStart').hide();
-                    $('#start').hide();
-                    $('#btnRestart').show();
-                    $('#timer').show();
-                    $('#game').hide();  
-                    $('#gameOver').show();
-                }
-                $('#numberCorrect').text('You got ' + correct + ' correct!');
-                $('#numberIncorrect').text('You got ' + (10 - correct) + ' incorrect!');
-        }
-
-four.onclick = function(){
-
-    var text = questions[i].answer1;
-    console.log(text)
-            for (var j = 0; j < 10; j++) {
-                if (answers[j].includes(text)) {
-                    correct++;
-                }
-            }
-
-            i++;
-            left--; 
-            console.log("correct: " + correct)
-            console.log("incorrect: " + incorrect)
-            console.log(left)
-
-            if (left !== 0) {
-                $('#question').text(questions[i].title);
-                $('#answer1').text(questions[i].answer1);
-                $('#answer2').text(questions[i].answer2);
-                $('#answer3').text(questions[i].answer3);
-                $('#answer4').text(questions[i].answer4);
-                }
-                else {
-                    $('#btnStart').hide();
-                    $('#start').hide();
-                    $('#btnRestart').show();
-                    $('#timer').show();
-                    $('#game').hide();  
-                    $('#gameOver').show();
-                }
-                $('#numberCorrect').text('You got ' + correct + ' correct!');
-                $('#numberIncorrect').text('You got ' + (10 - correct) + ' incorrect!');
-        }
-
-        $('#btnRestart').on('click', function() {
-            stopTimer();
-            $('#btnStart').show();
-            $('#start').show();
-            $('#btnRestart').hide();
-            $('#timer').hide();
-            $('#game').hide();  
-            $('#gameOver').hide();
-        })
-
+// if the answer is in the correct answer array, add one to the correct answer number
+function result() {
+    if ($("#2").is(":checked")) {
+        correct++;
+        console.log('checked1' + correct)
+    }
+    if ($("#7").is(":checked")) {
+        correct++;
+        console.log('checked2' + correct)
+    }
+    if ($("#9").is(":checked")) {
+        correct++;
+        console.log('checked3' + correct)
+    }
+    if ($("#13").is(":checked")) {
+        correct++;
+        console.log('checked4' + correct)
+    }
+    if ($("#20").is(":checked")) {
+        correct++;
+        console.log('checked5' + correct)
+    }
+    if ($("#22").is(":checked")) {
+        correct++;
+        console.log('checked6' + correct)
+    }
+    if ($("#27").is(":checked")) {
+        correct++;
+        console.log('checked7' + correct)
+    }
+    if ($("#29").is(":checked")) {
+        correct++;
+        console.log('checked8' + correct)
+    }
+    if ($("#35").is(":checked")) {
+        correct++;
+        console.log('checked9' + correct)
+    }
+    if ($("#40").is(":checked")) {
+        correct++;
+        console.log('checked10' + correct)
+    }
+$('#numberCorrect').text('You got ' + correct + ' correct!');
+// subtract 10 from the correct answers to get the incorrect answers.
+var totalIncorrect = (10 - correct);
+$('#numberIncorrect').text('You got ' + totalIncorrect + ' incorrect.')
+}
+// 
